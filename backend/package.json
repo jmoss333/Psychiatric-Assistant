@@ -2,7 +2,14 @@
   "name": "psychiatric-assistant-backend",
   "version": "0.1.0",
   "main": "app.js",
+  "bin": {
+    "analytics": "./analytics.js"
+  },
+  "scripts": {
+    "analytics": "node analytics.js"
+  },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "@supabase/supabase-js": "^2.39.5"
   }
 }
