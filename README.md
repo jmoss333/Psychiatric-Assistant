@@ -7,3 +7,5 @@ This repository contains a minimal prototype for an integrated therapy platform 
 3. **Therapeutic Aftercare Planner**
 
 The project includes a Node.js backend, React Native mobile app, and simple web dashboard. The code is not production-ready but provides a starting point for further development.
+
+Sample data can be seeded into a Supabase project using the script in `backend/seed-data.js`. See `backend/README.md` for setup instructions.
