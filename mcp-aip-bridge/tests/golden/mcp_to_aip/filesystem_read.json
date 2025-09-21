@@ -1,0 +1,34 @@
+{
+  "input": {
+    "jsonrpc": "2.0",
+    "method": "tools/filesystem/read",
+    "params": {
+      "path": "/tmp/discharge_summary.md"
+    },
+    "id": "test-001"
+  },
+  "expected": {
+    "aip_version": "0.1",
+    "type": "TASK",
+    "content": {
+      "schema": "mcp.tools/filesystem/read.v0",
+      "body": {
+        "path": "/tmp/discharge_summary.md"
+      },
+      "uir": "evidence.v0",
+      "uir_data": {
+        "items": [{
+          "type": "blob",
+          "uri": "file:///tmp/discharge_summary.md",
+          "confidence": 1.0
+        }]
+      }
+    },
+    "trust": {
+      "signature": "_COMPUTED_",
+      "sig_key_id": "bridge-ed25519-v1",
+      "confidence": 0.95,
+      "safety_tags": ["mcp:translated"]
+    }
+  }
+}
