@@ -5,6 +5,10 @@ This is a simple Express server providing placeholder endpoints for the three mo
 - `/api/intervention`
 - `/api/aftercare`
 
+## Setup
+
+Copy `.env.example` to `.env` and add your Supabase credentials.
+
 Run with:
 ```bash
 npm install
