@@ -1,0 +1,36 @@
+bridge:
+  mode: bidirectional
+  max_concurrent: 100
+  request_timeout: 30
+
+security:
+  enable_preflight: true
+  phi_detection: true
+  tool_allowlist:
+    - tools/filesystem/*
+    - tools/github/*
+    - tools/postgres/query
+    - resources/text
+  external_egress: false
+
+memory:
+  enable_sync: true
+  max_object_size: 1048576
+  idempotency_ttl: 3600
+  backpressure_threshold: 100
+
+provenance:
+  sign_messages: true
+  verify_signatures: true
+  key_rotation_days: 30
+
+observability:
+  traces: true
+  metrics: true
+  log_level: INFO
+  sample_rate: 0.1
+
+retry:
+  max_attempts: 3
+  backoff_base: 2
+  max_backoff: 30
