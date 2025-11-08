@@ -8,6 +8,7 @@ const authRoutes = require('./routes/auth');
 const clinicRoutes = require('./routes/clinics');
 const patientRoutes = require('./routes/patients');
 const scenarioRoutes = require('./routes/scenarios');
+const assessmentScalesRoutes = require('./routes/assessment-scales');
 
 // Initialize Express app
 const app = express();
@@ -38,6 +39,7 @@ apiV1.use('/auth', authRoutes);
 apiV1.use('/clinics', clinicRoutes);
 apiV1.use('/patients', patientRoutes);
 apiV1.use('/scenarios', scenarioRoutes);
+apiV1.use('/assessment-scales', assessmentScalesRoutes);
 
 // Mount API v1
 app.use('/api/v1', apiV1);

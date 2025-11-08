@@ -95,6 +95,32 @@ CREATE TABLE modality_combinations (
 );
 
 -- ============================================================================
+-- ASSESSMENT SCALES REFERENCE
+-- ============================================================================
+
+CREATE TABLE assessment_scales (
+    scale_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name VARCHAR(255) NOT NULL UNIQUE, -- e.g., "Patient Health Questionnaire-9"
+    abbreviation VARCHAR(20),
+    description TEXT,
+    category VARCHAR(100), -- depression, anxiety, ptsd, sleep, substance_use, etc.
+    num_items INTEGER, -- number of questions
+    score_range JSONB, -- { min: 0, max: 27 } for PHQ-9
+    interpretation JSONB, -- { "0-4": "minimal", "5-9": "mild", ... }
+    administration_time_minutes INTEGER, -- how long to administer
+    evidence_base JSONB, -- reliability, validity, sensitivity, specificity
+    use_cases JSONB, -- array of diagnoses/conditions it's used for
+    languages_available JSONB, -- array of language translations
+    copyright_info TEXT, -- licensing and copyright info
+    reference_links JSONB, -- links to research, manual, etc.
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE INDEX idx_scale_category ON assessment_scales(category);
+CREATE INDEX idx_scale_abbreviation ON assessment_scales(abbreviation);
+
+-- ============================================================================
 -- CLINICAL SCENARIOS & INTAKE
 -- ============================================================================
 
